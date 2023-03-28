@@ -1,0 +1,82 @@
+{%include 'core/header.html'%} {% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="{% static 'core/css/index.css'%}" />
+<link rel="stylesheet" href="{% static 'core/css/dashboard.css'%}" />
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <script>
+  let popup = document.getElementById("popup");
+  function openPopup() {
+    console.log("hello")
+    popup.classList.add("open-popup");
+  }
+  function closePopup() {
+    popup.classList.remove("open-popup");
+  }
+</script> -->
+
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 25%">
+  <h3 class="w3-bar-item" style="margin-left: 70px; font-weight: bolder">
+    Dashboard
+  </h3>
+  <p style="font-weight: bolder">
+    The availabilty of this room is 12 person in one time
+  </p>
+  <p style="font-weight: bolder">
+    If you want to scheduled a meeting than you have to be click on the set time
+    button
+  </p>
+  <div style="color: red; font-style: italic; margin-left: 10px;font-weight: bolder;">
+    {% if error%}
+    <p>Failed:</p>
+    * {{error}} 
+    <br>
+    * Please check another time slot 
+    {% endif %}
+  </div>
+  <div>
+    {% if messages %} {% for message in messages %}
+    <div style="color:rgb(94, 156, 0);font-style: italic;margin-left: 10px;font-weight: bolder;"> * {{ message }}</div>
+    {% endfor %} {% endif %}
+  </div>
+
+  <button
+    style="margin-left: 90px; margin-top: 100px"
+    href=""
+    onClick="openPopup()"
+    type="submit"
+    class="btn btn-dark"
+  >
+    Book Now
+  </button>
+  <div class="popup" id="popup">
+    {% include 'core/settime1.html' %}
+    <button type="button" onclick="closePopup()">close</button>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div style="margin-left: 25%; text-align: center">
+  <div class="w3-container w3-teal">
+    <h1>Meeting Room-1</h1>
+  </div>
+  <br />
+  <div class="w3-container" style="height: 3opx">
+    {%include 'core/calendar.html'%}
+  </div>
+</div>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+<script>
+  let popup = document.getElementById("popup");
+  function openPopup() {
+    // console.log("hello")
+    popup.classList.add("open-popup");
+  }
+  function closePopup() {
+    popup.classList.remove("open-popup");
+  }
+</script>

@@ -1,0 +1,89 @@
+{% load static %}
+{% include 'core/header.html' %}
+<link rel="stylesheet" href="{% static 'core/css/pop.css'%}">
+
+
+<div
+  style="background-image: url('{% static 'core/img/5.jpg' %}')">
+<div class='container'>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card mt-5" >
+                <img class="card-img-top " src="{% static 'core/img/1.jpg' %}" height='350px' alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">MEETING ROOM 1</h5>
+                  <p class="card-text"></p>
+                  <a class="btn btn-dark" href="{% url 'dashboard'%}" role="button">Enter Here</a>
+                  <a class="btn btn-dark" href="" role="button">Check Availabilty</a>
+                  {% comment %} <a type='submit' href="" class="btn btn-dark">Enter</a> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card mt-5" >
+                <img class="card-img-top " src="{% static 'core/img/2.jpg' %}" height='350px' alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">MEETING ROOM 2</h5>
+                  <p class="card-text"></p>
+                  <a href="{% url 'dashboard2'%}" class="btn btn-dark">Enter Here</a>
+                  
+                  <button href=""onClick="openPopup()"type="submit" class="btn btn-dark">Check Availabilty</button>
+                  <div class ="popup" id="popup">
+                    <h3> Room Availabilty of Room-1</h3>
+                    <p>helloo</p>
+                    <button type="button" onclick="closePopup()">ok</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} </div> {% endcomment %}
+
+{% comment %} s {% endcomment %}
+<div class='container'>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card mt-5 mb-5" >
+                <img class="card-img-top " src="{% static 'core/img/3.jpg' %}" height='350px' alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">MEETING ROOM 3</h5>
+                  <p class="card-text"></p>
+                  <a href="{% url 'dashboard3'%}" class="btn btn-dark">Enter Here</a>
+                  <a href="" class="btn btn-dark">Check Availabilty</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <div class="card mt-5 mb-5" >
+                <img class="card-img-top " src="{% static 'core/img/4.jpg' %}" height='350px' alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">MEETING ROOM 4</h5>
+                  <p class="card-text"></p>
+                  <a href="{% url 'dashboard4'%}" class="btn btn-dark">Enter Here</a>
+                  <a href="" class="btn btn-dark">Check Availabilty</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</form>
+<div class ="popup"id="popup">
+    <h2>okoqedkqed</h2>
+    <p>k;owedw</p>
+    <button type="button" onclick="closePopup()">okkkkkk</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    let popup = document.getElementById("popup");
+    function openPopup(){
+        // console.log("hello")
+        popup.classList.add("open-popup")
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup")
+    }
+</script>

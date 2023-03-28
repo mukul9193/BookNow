@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href='{% static "core/css/bootstrap.css" %}' />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'core/css/bootstrap.min.css' %}"
+    />
+  </head>
+  <body>
+    <script src='{% static "css/bootstrap.js" %}'></script>
+    <nav class="navbar navbar-light bg-dark justify-content-between">
+      <a class="navbar-brand text-white" style="margin-left: 20px" href="#"
+        ><label class="logo">Book Now</label></a
+      >
+      <div>
+        {% if request.user.is_authenticated %}
+        <a
+          class="text-white"
+          style="text-decoration: none; margin-right: 20px"
+          href="javascript:;"
+        >
+          Welcome!! {{request.user}}
+        </a>
+        <a
+          class="btn btn-secondary"
+          style="margin-right: 20px"
+          href="{% url 'logout'%}"
+          role="button"
+          >Logout</a
+        >
+        {% else %}
+        <a
+          class="btn btn-secondary"
+          style="margin-right: 30px"
+          href="{% url 'register'%}"
+          role="button"
+          >Sign Up</a
+        >
+        <a class="btn btn-secondary" style="margin-right: 30px"href="{% url 'login'%}" role="button"
+          >Login</a
+        >
+        {% endif %}
+      </div>
+    </nav>
+  </body>
+</html>

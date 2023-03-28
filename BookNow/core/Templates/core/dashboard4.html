@@ -1,0 +1,35 @@
+{%include 'core/header.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'core/css/index.css'%}">
+<body>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%;">
+  <h3 class="w3-bar-item"style="margin-left:5px">Dashboard</h3>
+  <p style="font-weight: bolder;">The availabilty of this room is 12 person in one time</p>
+  <p style="font-weight: bolder;">If you want to scheduled a meeting than you have to be click on the set time button</p>
+  <br>
+  <button style="margin-left: 70px;"class = "button-85" role="'button"><span><a style="color:rgb(255, 255, 255);
+    text-decoration: none;" href="{% url 'settime2' %}">Set Time</a></span></button>
+</div>
+
+<!-- Page Content -->
+<div style="margin-left:25%;text-align: center">
+
+<div class="w3-container w3-teal">
+  <h1>Meeting Room-4</h1>
+</div>
+<br>
+<div class="w3-container"style="height:3opx">
+    {%include 'core/calendar4.html'%}
+</div>
+
+</div>
+      
+</body>

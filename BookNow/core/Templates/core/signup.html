@@ -1,0 +1,50 @@
+{% include 'core/header.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='stylesheet' href='{% static "core/css/bootstrap.css" %}'>
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css.map' %}"> -->
+
+</head>
+<body>
+    <div class="page-heading" id="top">
+        <div class="container">
+         <div class="row my-3">
+          <div class="col-sm-8 offset-sm-3">
+           <h3 class="container mt-4 text-center" id="dood" >Sign up Form</h3>
+          
+        <div class="center">
+           <form action="" method="POST" novalidate class="shadow p-5 mb-4" id="dood">
+            {% if messages %}
+        {% for message in messages  %}
+        <div {% if message.tags %} class="alert alert-{{message.tags}} mb-5 {% endif %}">{{message}}</div>
+        {% endfor %}
+        {% endif %}
+            {% csrf_token %}
+            {% for fm in form %}
+            
+            <div class="form-group mb-3">
+              {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+            </div>
+            {% endfor %}
+            <input type="submit" value="SUBMIT" class="btn btn-dark">
+            <br>
+            <div class="text-center text-dark fw-bold"><small>Existing User ? <a href="{% url 'login'%}"
+              class="text-danger">Login Now</a> </small></div>
+           {% if form.non_field_errors %}
+           {% for error in form.non_field_errors %}
+           <p class="alert alert-danger my-3">{{error}}</p>
+           {% endfor %}
+           {% endif %}
+            
+           </form>
+          </div>
+          </div>
+         </div>
+        </div>
+        </div>
+</body>
+</html>
