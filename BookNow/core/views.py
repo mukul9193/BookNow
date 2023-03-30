@@ -87,17 +87,17 @@ def user_logout(request):
 
 # TODO---Event1--------------------------------------------------------------------------------------------------------
 
-class SetTime1(View):
+class SetTimeOne(View):
     def get(self, request):
         return render(request, 'core/settime1.html')
 
     def post(self, request):
-        post_data = request.POST
+        payload = request.POST
         print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.")
-        title = post_data.get('title')
-        name = post_data.get('name')
-        start_date = post_data.get('start_date')
-        end_date = post_data.get('end_date')
+        title = payload.get('title')
+        name = payload.get('name')
+        start_date = payload.get('start_date')
+        end_date = payload.get('end_date')
         print(start_date)
         print(type(start_date))
         # TODO --> FOR TODAY DATE
@@ -158,10 +158,6 @@ class SetTime1(View):
             obj = MeetingRoom1.objects.filter(
                 start__lt=user_start_time_compiled) and MeetingRoom1.objects.filter(end__gt=user_end_time_compiled)
             print("Finally", obj)
-            if not obj:
-                print("i am null")
-            else:
-                print('I am not empty')
             if not obj:
                 register = MeetingRoom1(
                     title=title, name=name, start=start_date, end=end_date)

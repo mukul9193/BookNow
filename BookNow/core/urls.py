@@ -21,7 +21,7 @@ urlpatterns = [
     path('dashboard4/', views.dashboard_view4, name="dashboard4"),
 
 
-    path('settime1/', views.SetTime1.as_view(), name="settime1"),
+    path('settime1/', views.SetTimeOne.as_view(), name="settime1"),
     # path('settime2/', views.SetTime2.as_view(), name="settime2"),
     # path('settime3/', views.SetTime3.as_view(), name="settime3"),
     # path('settime4/', views.SetTime4.as_view(), name="settime4"),
